@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-parchment-50 text-ocean-900 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-treasure-300 text-ocean-950;
+  }
+
+  /* Barra de rolagem temática */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ocean-950;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-treasure-500 rounded-full border-2 border-ocean-950;
+  }
+}
+
+@layer components {
+  /* ---- Botões ---- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 font-semibold
+           transition-all duration-200 focus:outline-none focus-visible:ring-4 disabled:cursor-not-allowed
+           disabled:opacity-50 active:scale-[0.97];
+  }
+  .btn-primary {
+    @apply btn bg-coral-500 text-white shadow-card hover:bg-coral-600 focus-visible:ring-coral-200;
+  }
+  .btn-treasure {
+    @apply btn bg-treasure-400 text-ocean-950 shadow-card hover:bg-treasure-300 focus-visible:ring-treasure-200;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ocean-800 hover:bg-ocean-100;
+  }
+  .btn-outline {
+    @apply btn border-2 border-ocean-200 bg-white text-ocean-800 hover:border-treasure-400 hover:text-treasure-700;
+  }
+
+  /* ---- Campos de formulário ---- */
+  .input {
+    @apply w-full rounded-xl border-2 border-ocean-100 bg-white px-4 py-2.5 text-ocean-900
+           placeholder:text-ocean-300 transition focus:border-treasure-400 focus:outline-none
+           focus:ring-4 focus:ring-treasure-100;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-ocean-700;
+  }
+
+  /* ---- Cartões ---- */
+  .card {
+    @apply rounded-2xl border border-ocean-100 bg-white shadow-card;
+  }
+
+  /* ---- Selos / badges ---- */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold;
+  }
+
+  /* ---- Chip de categoria ---- */
+  .chip {
+    @apply cursor-pointer select-none rounded-full border-2 px-4 py-1.5 text-sm font-semibold transition;
+  }
+  .chip-active {
+    @apply border-treasure-400 bg-treasure-400 text-ocean-950;
+  }
+  .chip-idle {
+    @apply border-ocean-100 bg-white text-ocean-600 hover:border-treasure-300;
+  }
+}
+
+@layer utilities {
+  .text-shadow-hero {
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  }
+  /* Corda/serrilha de pergaminho para divisores */
+  .rope-divider {
+    background-image: repeating-linear-gradient(
+      90deg,
+      theme('colors.treasure.400') 0 14px,
+      transparent 14px 28px
+    );
+    height: 4px;
+  }
+}
